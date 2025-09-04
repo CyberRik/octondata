@@ -1,0 +1,101 @@
+import yaml
+import os
+import logging
+from od_parse import parse_pdf
+from transformers import pipeline
+
+# Set up logging (if enabled in the config)
+def setup_logging(log_file):
+    logging.basicConfig(filename=log_file, level=logging.INFO, 
+                        format='%(asctime)s - %(levelname)s - %(message)s')
+
+# Load configuration from config.yaml
+def load_config(config_path="config.yaml"):
+    with open(config_path, "r") as file:
+        return yaml.safe_load(file)
+
+# Parse the document based on file type
+def parse_document(file_path, parser_config):
+    try:
+        if parser_config['pdf']:
+            # Parse PDF document using od-parse with table extraction enabled
+            parsed_data = parse_pdf(file_path, config={"extract_tables": True})
+            document_text = parsed_data.get("text", "")
+            tables = parsed_data.get("tables", [])
+            logging.info(f"Extracted {len(tables)} tables from the document.")
+            return document_text, tables
+        elif parser_config['image']:
+            # Implement image parsing here (if needed)
+            pass
+        elif parser_config['text']:
+            # Implement text parsing here (if needed)
+            pass
+        else:
+            raise ValueError("No valid parser type specified.")
+    except Exception as e:
+        logging.error(f"Error parsing document {file_path}: {e}")
+        return None, None
+
+# Generate text using a Hugging Face model
+def generate_text(prompt, model_name, max_length, temperature):
+    try:
+        generator = pipeline('text-generation', model=model_name)
+        response = generator(prompt, max_length=max_length, temperature=temperature)
+        return response[0]['generated_text']
+    except Exception as e:
+        logging.error(f"Error generating text with model {model_name}: {e}")
+        return None
+
+# Main pipeline function
+def run_pipeline(config):
+    # Set up logging if enabled
+    if config['logging']['enable_logging']:
+        setup_logging(config['logging']['log_file'])
+        logging.info("Pipeline started.")
+
+    # Load input and output directories
+    input_file = config['input_file']
+    output_dir = config['output_dir']
+
+    # Parse the document
+    if os.path.exists(input_file):
+        document_text, tables = parse_document(input_file, config['parser'])
+        if document_text is None:
+            logging.error("Document parsing failed.")
+            return
+        logging.info("Document parsed successfully.")
+    else:
+        logging.error(f"Input file {input_file} does not exist.")
+        return
+
+    # Generate text based on the parsed document
+    generated_text = generate_text(document_text, config['model']['name'], 
+                                   config['model']['max_length'], config['model']['temperature'])
+    
+    if generated_text:
+        logging.info(f"Generated text: {generated_text}")
+        
+        # Save the result to the output directory
+        os.makedirs(output_dir, exist_ok=True)
+        output_file = os.path.join(output_dir, "generated_output.txt")
+        with open(output_file, 'w') as file:
+            file.write(generated_text)
+        
+        logging.info(f"Output saved to {output_file}")
+    else:
+        logging.error("Text generation failed.")
+
+    # If tables were extracted, you can also save the tables (optional)
+    if tables:
+        tables_output_file = os.path.join(output_dir, "extracted_tables.md")
+        with open(tables_output_file, 'w') as file:
+            for i, table in enumerate(tables):
+                file.write(f"Table {i + 1}:\n")
+                file.write(table.to_markdown() + "\n")
+        
+        logging.info(f"Extracted tables saved to {tables_output_file}")
+
+# Run the pipeline
+if __name__ == "__main__":
+    config = load_config()  # Load the config from the YAML file
+    run_pipeline(config)

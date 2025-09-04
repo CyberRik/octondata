@@ -1,0 +1,33 @@
+# config.yaml
+
+# Input and Output Paths
+input_file: "/path/to/your/document.pdf"  # Path to input file (can be PDF, image, etc.)
+output_dir: "/path/to/output/"            # Path to save the output results
+
+# Model Configuration
+model:
+  name: "EleutherAI/gpt-neo-2.7B"         # Hugging Face model for text generation
+  max_length: 100                         # Max length of generated text
+  temperature: 0.7                        # Controls randomness in the generation
+
+# Parser Configuration
+parser:
+  pdf: true                               # Enable PDF parsing
+  image: false                            # Enable image parsing
+  text: true                              # Enable text parsing (if you need text files)
+
+# Retrieval System Configuration
+retrieval:
+  method: "faiss"                         # Can be "faiss", "pinecone", "weaviate", etc.
+  index_path: "/path/to/index"            # Path to document index for retrieval
+
+# Logging Configuration
+logging:
+  enable_logging: true                    # Enable logging for the pipeline
+  log_file: "pipeline.log"                # Log file name
+
+# General Settings
+general:
+  batch_size: 5                           # Number of documents to process in parallel (if needed)
+  retry_on_failure: true                  # Whether to retry if the pipeline fails at any stage
+  max_retry_attempts: 3                   # Maximum retry attempts
