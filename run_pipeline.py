@@ -2,8 +2,6 @@ import yaml
 import os
 import logging
 from od_parse import parse_pdf
-import pytesseract
-from PIL import Image
 
 # Set up logging (if enabled in the config)
 def setup_logging(log_file):
@@ -19,16 +17,59 @@ def load_config(config_path="config.yaml"):
 def parse_document(file_path, parser_config):
     try:
         if parser_config['pdf']:
-            # Parse PDF document using od-parse with table extraction enabled
-            parsed_data = parse_pdf(file_path, config={"extract_tables": True})
-            document_text = parsed_data.get("text", "")
+            # Parse PDF via od-parse; enable tables and internal OCR if available
+            parsed_data = parse_pdf(file_path, config={"extract_tables": True, "ocr": True})
+            document_text = parsed_data.get("text", "") or ""
+            # Append any od-parse OCR outputs, if exposed in result
+            ocr_candidates_keys = [
+                "ocr_text",            # string or list of strings
+                "image_texts",         # list of strings
+                "ocr",                 # dict with 'text' or list
+                "images_ocr_text",     # alt key
+            ]
+            ocr_segments = []
+            for key in ocr_candidates_keys:
+                if key in parsed_data and parsed_data[key]:
+                    val = parsed_data[key]
+                    if isinstance(val, str):
+                        ocr_segments.append(val)
+                    elif isinstance(val, (list, tuple)):
+                        for it in val:
+                            if isinstance(it, str) and it.strip():
+                                ocr_segments.append(it)
+                    elif isinstance(val, dict):
+                        txt = val.get("text") if isinstance(val.get("text"), str) else None
+                        if txt:
+                            ocr_segments.append(txt)
+            if ocr_segments:
+                if document_text.strip():
+                    document_text += "\n\n"
+                document_text += "\n\n".join(s.strip() for s in ocr_segments if s.strip())
+                logging.info("Appended OCR text from od-parse outputs to parsed text.")
             tables = parsed_data.get("tables", [])
             logging.info(f"Extracted {len(tables)} tables from the document.")
             return document_text, tables
         elif parser_config['image']:
-            # Implement image parsing using Tesseract OCR
-            document_text = parse_image(file_path)
-            logging.info("Image parsed successfully.")
+            # Delegate image parsing to od-parse by routing through parse_pdf-like interface if supported
+            # For simplicity, treat as text-only path (od-parse handles images internally when passed)
+            parsed_data = parse_pdf(file_path, config={"ocr": True, "extract_tables": False})
+            document_text = parsed_data.get("text", "") or ""
+            # Append any OCR text keys as above
+            ocr_segments = []
+            for key in ("ocr_text", "image_texts", "ocr", "images_ocr_text"):
+                if key in parsed_data and parsed_data[key]:
+                    val = parsed_data[key]
+                    if isinstance(val, str):
+                        ocr_segments.append(val)
+                    elif isinstance(val, (list, tuple)):
+                        ocr_segments.extend([s for s in val if isinstance(s, str)])
+                    elif isinstance(val, dict) and isinstance(val.get("text"), str):
+                        ocr_segments.append(val["text"])
+            if ocr_segments:
+                if document_text.strip():
+                    document_text += "\n\n"
+                document_text += "\n\n".join(s.strip() for s in ocr_segments if isinstance(s, str))
+            logging.info("Image parsed successfully via od-parse.")
             return document_text, []
         elif parser_config['text']:
             # Implement text file parsing
@@ -41,22 +82,9 @@ def parse_document(file_path, parser_config):
         logging.error(f"Error parsing document {file_path}: {e}")
         return None, None
 
-# Generate text using a Hugging Face model
+# Generate text (deprecated)
 def generate_text(prompt, model_name, max_length, temperature):
-    # Deprecated: generation removed to avoid duplicate/unnecessary outputs
     return None
-    
-# Image Parsing using Tesseract OCR
-def parse_image(image_path):
-    try:
-        # Open the image using Pillow
-        image = Image.open(image_path)
-        # Use Tesseract OCR to extract text
-        text = pytesseract.image_to_string(image)
-        return text
-    except Exception as e:
-        logging.error(f"Error parsing image {image_path}: {e}")
-        return ""
 
 # Text Parsing for plain text files
 def parse_text(text_file_path):
@@ -67,6 +95,78 @@ def parse_text(text_file_path):
     except Exception as e:
         logging.error(f"Error parsing text file {text_file_path}: {e}")
         return ""
+
+def _render_table_markdown(table):
+    try:
+        # Pandas DataFrame
+        to_md = getattr(table, 'to_markdown', None)
+        if callable(to_md):
+            return to_md()
+        # List of lists or list of dicts
+        if isinstance(table, list) and table:
+            # If dicts, try to normalize special pattern with 'Unnamed: N' columns
+            if isinstance(table[0], dict):
+                first = table[0]
+                keys = list(first.keys())
+                unnamed = [(k, int(k.split(':')[1].strip())) for k in keys if k.startswith('Unnamed:') and k.split(':')[1].strip().isdigit()]
+                # primary key: pick the longest key string as the first column (often paragraph-like header)
+                other_keys = [k for k in keys if not k.startswith('Unnamed:')]
+                primary_key = max(other_keys, key=lambda k: len(str(k)), default=(other_keys[0] if other_keys else None))
+                if primary_key or unnamed:
+                    ordered_cols = []
+                    if primary_key:
+                        ordered_cols.append(primary_key)
+                    ordered_cols.extend([k for k, _n in sorted(unnamed, key=lambda x: x[1])])
+                    # Build header from first row values
+                    header_vals = [str(first.get(col, '')) for col in ordered_cols]
+                    body_rows = []
+                    for row in table[1:]:
+                        body_rows.append([str(row.get(col, '')) for col in ordered_cols])
+                    md = "| " + " | ".join(header_vals) + " |\n"
+                    md += "| " + " | ".join(["---"] * len(header_vals)) + " |\n"
+                    for r in body_rows:
+                        md += "| " + " | ".join(r) + " |\n"
+                    return md
+                # Fallback: use keys order as-is
+                headers = list(first.keys())
+                rows = [[str(row.get(h, '')) for h in headers] for row in table]
+                md = "| " + " | ".join(headers) + " |\n"
+                md += "| " + " | ".join(["---"] * len(headers)) + " |\n"
+                for r in rows:
+                    md += "| " + " | ".join(r) + " |\n"
+                return md
+            else:
+                # assume first row is header if elements are scalar
+                headers = [str(h) for h in table[0]]
+                rows = [[str(c) for c in r] for r in table[1:]]
+                md = "| " + " | ".join(headers) + " |\n"
+                md += "| " + " | ".join(["---"] * len(headers)) + " |\n"
+                for r in rows:
+                    md += "| " + " | ".join(r) + " |\n"
+                return md
+        # Dict with values list-like
+        if isinstance(table, dict) and table:
+            headers = list(table.keys())
+            # transpose values if lists of equal length
+            values = list(table.values())
+            row_count = max((len(v) for v in values if isinstance(v, (list, tuple))), default=1)
+            rows = []
+            for i in range(row_count):
+                row = []
+                for v in values:
+                    if isinstance(v, (list, tuple)) and i < len(v):
+                        row.append(str(v[i]))
+                    else:
+                        row.append(str(v) if i == 0 else '')
+                rows.append(row)
+            md = "| " + " | ".join(headers) + " |\n"
+            md += "| " + " | ".join(["---"] * len(headers)) + " |\n"
+            for r in rows:
+                md += "| " + " | ".join(r) + " |\n"
+            return md
+    except Exception as exc:
+        logging.warning(f"Failed to render table to markdown: {exc}")
+    return None
 
 # Main pipeline function
 def run_pipeline(config):
@@ -101,13 +201,7 @@ def run_pipeline(config):
         logging.error(f"Failed to write parsed text file: {e}")
 
     # If tables were extracted, you can also save the tables (optional)
-    if tables:
-        tables_output_file = os.path.join(output_dir, "extracted_tables.md")
-        with open(tables_output_file, 'w', encoding='utf-8', newline='') as file:
-            for i, table in enumerate(tables):
-                file.write(f"Table {i + 1}:\n")
-                file.write(table.to_markdown() + "\n")
-        logging.info(f"Extracted tables saved to {tables_output_file}")
+    # No longer writing extracted tables to file; focus on parsed text + OCR.
 
 # Run the pipeline
 if __name__ == "__main__":

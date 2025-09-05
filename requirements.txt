@@ -13,8 +13,7 @@ pyyaml==6.0.2
 PyMuPDF==1.24.11
 
 # For working with images (if parsing images)
-Pillow==10.4.0
-pytesseract==0.3.13
+### Removed Pillow/pytesseract; od-parse handles OCR internally
 
 # Other useful libraries
 numpy==2.1.3

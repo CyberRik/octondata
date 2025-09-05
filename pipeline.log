@@ -64,3 +64,215 @@
 2025-09-05 14:52:40,753 - INFO - Extracted 0 tables from the document.
 2025-09-05 14:52:40,753 - INFO - Document parsed successfully.
 2025-09-05 14:52:40,754 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 14:54:35,653 - INFO - Pipeline started.
+2025-09-05 14:54:35,654 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:54:36,909 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:54:36,910 - WARNING - No module named 'jpype'
+2025-09-05 14:54:37,946 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:54:37,948 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:54:37,948 - INFO - Document parsed successfully.
+2025-09-05 14:54:37,949 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 14:58:15,523 - INFO - Pipeline started.
+2025-09-05 14:58:15,523 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:58:16,688 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:58:16,688 - WARNING - No module named 'jpype'
+2025-09-05 14:58:17,290 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:58:17,318 - ERROR - Error extracting handwritten content from sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:58:17,318 - INFO - Extracted 2 tables from the document.
+2025-09-05 14:58:17,318 - INFO - Document parsed successfully.
+2025-09-05 14:58:17,319 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:12:35,029 - INFO - Pipeline started.
+2025-09-05 15:12:35,029 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:12:36,354 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:12:36,354 - WARNING - No module named 'jpype'
+2025-09-05 15:12:37,015 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:12:37,043 - ERROR - Error extracting handwritten content from sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:12:37,044 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:12:37,044 - INFO - Document parsed successfully.
+2025-09-05 15:12:37,045 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:12:37,045 - INFO - Extracted tables saved to ./outputs\extracted_tables.md
+2025-09-05 15:15:45,589 - INFO - Pipeline started.
+2025-09-05 15:15:45,590 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:15:46,814 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:15:46,814 - WARNING - No module named 'jpype'
+2025-09-05 15:15:47,417 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:15:47,437 - ERROR - Error extracting handwritten content from sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:15:47,438 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:15:47,438 - INFO - Document parsed successfully.
+2025-09-05 15:15:47,439 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:15:47,439 - INFO - Extracted tables saved to ./outputs\extracted_tables.md
+2025-09-05 15:19:08,207 - INFO - Pipeline started.
+2025-09-05 15:19:08,208 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:19:09,363 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:19:09,363 - WARNING - No module named 'jpype'
+2025-09-05 15:19:09,948 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:09,977 - ERROR - Error extracting handwritten content from sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:09,978 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:19:10,095 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:10,112 - ERROR - Error parsing image sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:10,230 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:10,248 - ERROR - Error parsing image sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:10,248 - INFO - Document parsed successfully.
+2025-09-05 15:19:10,249 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:19:32,562 - INFO - Pipeline started.
+2025-09-05 15:19:32,563 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:19:33,648 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:19:33,648 - WARNING - No module named 'jpype'
+2025-09-05 15:19:34,219 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:34,249 - ERROR - Error extracting handwritten content from sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:34,249 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:19:34,368 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:34,385 - ERROR - Error parsing image sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:34,503 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:34,521 - ERROR - Error parsing image sample_images\page_1_img_13.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:19:34,521 - INFO - Document parsed successfully.
+2025-09-05 15:19:34,522 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:20:56,160 - INFO - Pipeline started.
+2025-09-05 15:20:56,161 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:20:57,371 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:20:57,371 - WARNING - No module named 'jpype'
+2025-09-05 15:20:57,972 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:57,999 - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,018 - ERROR - Error extracting handwritten content from sample_images\page_1_img_2.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,037 - ERROR - Error extracting handwritten content from sample_images\page_1_img_3.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,057 - ERROR - Error extracting handwritten content from sample_images\page_1_img_4.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,076 - ERROR - Error extracting handwritten content from sample_images\page_1_img_235.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,100 - ERROR - Error extracting handwritten content from sample_images\page_1_img_236.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,121 - ERROR - Error extracting handwritten content from sample_images\page_1_img_396.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,144 - ERROR - Error extracting handwritten content from sample_images\page_1_img_397.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,165 - ERROR - Error extracting handwritten content from sample_images\page_1_img_398.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,185 - ERROR - Error extracting handwritten content from sample_images\page_1_img_399.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,212 - ERROR - Error extracting handwritten content from sample_images\page_1_img_412.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,213 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:20:58,388 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,406 - ERROR - Error parsing image sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,414 - ERROR - Error parsing image sample_images\page_1_img_2.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,422 - ERROR - Error parsing image sample_images\page_1_img_235.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,438 - ERROR - Error parsing image sample_images\page_1_img_236.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,444 - ERROR - Error parsing image sample_images\page_1_img_3.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,458 - ERROR - Error parsing image sample_images\page_1_img_396.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,473 - ERROR - Error parsing image sample_images\page_1_img_397.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,479 - ERROR - Error parsing image sample_images\page_1_img_398.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,487 - ERROR - Error parsing image sample_images\page_1_img_399.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,493 - ERROR - Error parsing image sample_images\page_1_img_4.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,509 - ERROR - Error parsing image sample_images\page_1_img_412.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,675 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,694 - ERROR - Error parsing image sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,702 - ERROR - Error parsing image sample_images\page_1_img_2.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,710 - ERROR - Error parsing image sample_images\page_1_img_235.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,726 - ERROR - Error parsing image sample_images\page_1_img_236.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,733 - ERROR - Error parsing image sample_images\page_1_img_3.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,749 - ERROR - Error parsing image sample_images\page_1_img_396.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,763 - ERROR - Error parsing image sample_images\page_1_img_397.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,771 - ERROR - Error parsing image sample_images\page_1_img_398.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,779 - ERROR - Error parsing image sample_images\page_1_img_399.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,786 - ERROR - Error parsing image sample_images\page_1_img_4.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,803 - ERROR - Error parsing image sample_images\page_1_img_412.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:20:58,803 - INFO - Document parsed successfully.
+2025-09-05 15:20:58,804 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:22:40,979 - INFO - Pipeline started.
+2025-09-05 15:22:40,980 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:22:42,239 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:22:42,239 - WARNING - No module named 'jpype'
+2025-09-05 15:22:42,827 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:42,857 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:42,896 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:42,921 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:42,922 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:22:43,122 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,168 - ERROR - Error parsing image sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,259 - ERROR - Error parsing image sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,276 - ERROR - Error parsing image sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,477 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,523 - ERROR - Error parsing image sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,611 - ERROR - Error parsing image sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,628 - ERROR - Error parsing image sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:22:43,628 - INFO - Document parsed successfully.
+2025-09-05 15:22:43,629 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:28:26,940 - INFO - Pipeline started.
+2025-09-05 15:28:26,940 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:28:28,450 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:28:28,450 - WARNING - No module named 'jpype'
+2025-09-05 15:28:29,111 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:28:29,143 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:28:29,184 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:28:29,211 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:28:29,212 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:28:29,549 - ERROR - Error parsing image sample_images\combined\page_1_combined.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:28:29,550 - INFO - Document parsed successfully.
+2025-09-05 15:28:29,551 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:29:40,725 - INFO - Pipeline started.
+2025-09-05 15:29:40,725 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:29:41,970 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:29:41,970 - WARNING - No module named 'jpype'
+2025-09-05 15:29:42,591 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:29:42,623 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:29:42,664 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:29:42,693 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:29:42,694 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:29:43,031 - ERROR - Error parsing image sample_images\combined\page_1_combined.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:29:43,032 - INFO - Document parsed successfully.
+2025-09-05 15:29:43,033 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:30:23,965 - INFO - Pipeline started.
+2025-09-05 15:30:23,966 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:30:25,187 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:30:25,187 - WARNING - No module named 'jpype'
+2025-09-05 15:30:25,819 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:25,851 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:25,893 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:25,920 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:25,921 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:30:26,119 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,169 - ERROR - Error parsing image sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,258 - ERROR - Error parsing image sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,277 - ERROR - Error parsing image sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,480 - ERROR - Error parsing image sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,528 - ERROR - Error parsing image sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,618 - ERROR - Error parsing image sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,636 - ERROR - Error parsing image sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:30:26,636 - INFO - Document parsed successfully.
+2025-09-05 15:30:26,637 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:34:51,075 - INFO - Pipeline started.
+2025-09-05 15:34:51,075 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:34:52,306 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:34:52,306 - WARNING - No module named 'jpype'
+2025-09-05 15:34:52,923 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:34:52,954 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:34:52,996 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:34:53,021 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:34:53,022 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:34:53,022 - INFO - Document parsed successfully.
+2025-09-05 15:34:53,023 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:34:58,963 - INFO - Pipeline started.
+2025-09-05 15:34:58,963 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:35:00,185 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:35:00,185 - WARNING - No module named 'jpype'
+2025-09-05 15:35:00,808 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:00,840 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:00,881 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:00,908 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:00,909 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:35:00,909 - INFO - Document parsed successfully.
+2025-09-05 15:35:00,910 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:35:08,356 - INFO - Pipeline started.
+2025-09-05 15:35:08,356 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:35:09,620 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:35:09,620 - WARNING - No module named 'jpype'
+2025-09-05 15:35:10,263 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:10,295 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:10,334 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:10,361 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:10,362 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:35:10,362 - INFO - Document parsed successfully.
+2025-09-05 15:35:10,362 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 15:35:38,643 - INFO - Pipeline started.
+2025-09-05 15:35:38,644 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 15:35:39,878 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 15:35:39,878 - WARNING - No module named 'jpype'
+2025-09-05 15:35:40,488 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:40,519 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:40,557 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:40,584 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 15:35:40,585 - INFO - Extracted 2 tables from the document.
+2025-09-05 15:35:40,585 - INFO - Document parsed successfully.
+2025-09-05 15:35:40,586 - INFO - Parsed text saved to ./outputs\parsed_text.txt

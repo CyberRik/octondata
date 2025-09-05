@@ -59,7 +59,11 @@ python rag_pipeline.py query --config config.yaml --index-path ./rag_index.json 
 python run_pipeline.py
 ```
 
-This will parse the document at `config.yaml.input_file` and write the full extracted text to `outputs/parsed_text.txt`. If tables are detected, they are saved to `outputs/extracted_tables.md`.
+This will parse the document at `config.yaml.input_file` and write the full extracted text to `outputs/parsed_text.txt`.
+
+Enhancements:
+- If page images are generated alongside the PDF (e.g., `sample_images/`), the pipeline will OCR those images and append that text to `parsed_text.txt` as well.
+- Exporting tables to a separate Markdown file has been removed to keep output focused and non-redundant.
 
 ### Notes
 - The TF-IDF implementation is intentionally simple and dependency-light to maximize compatibility on Windows + Python 3.13.
