@@ -3,6 +3,8 @@ import os
 import logging
 from od_parse import parse_pdf
 from transformers import pipeline
+import pytesseract
+from PIL import Image
 
 # Set up logging (if enabled in the config)
 def setup_logging(log_file):
@@ -25,11 +27,15 @@ def parse_document(file_path, parser_config):
             logging.info(f"Extracted {len(tables)} tables from the document.")
             return document_text, tables
         elif parser_config['image']:
-            # Implement image parsing here (if needed)
-            pass
+            # Implement image parsing using Tesseract OCR
+            document_text = parse_image(file_path)
+            logging.info("Image parsed successfully.")
+            return document_text, []
         elif parser_config['text']:
-            # Implement text parsing here (if needed)
-            pass
+            # Implement text file parsing
+            document_text = parse_text(file_path)
+            logging.info("Text file parsed successfully.")
+            return document_text, []
         else:
             raise ValueError("No valid parser type specified.")
     except Exception as e:
@@ -45,6 +51,28 @@ def generate_text(prompt, model_name, max_length, temperature):
     except Exception as e:
         logging.error(f"Error generating text with model {model_name}: {e}")
         return None
+    
+# Image Parsing using Tesseract OCR
+def parse_image(image_path):
+    try:
+        # Open the image using Pillow
+        image = Image.open(image_path)
+        # Use Tesseract OCR to extract text
+        text = pytesseract.image_to_string(image)
+        return text
+    except Exception as e:
+        logging.error(f"Error parsing image {image_path}: {e}")
+        return ""
+
+# Text Parsing for plain text files
+def parse_text(text_file_path):
+    try:
+        with open(text_file_path, 'r') as file:
+            text = file.read()
+        return text
+    except Exception as e:
+        logging.error(f"Error parsing text file {text_file_path}: {e}")
+        return ""
 
 # Main pipeline function
 def run_pipeline(config):
