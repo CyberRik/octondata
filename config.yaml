@@ -4,11 +4,7 @@
 input_file: "./sample.pdf"  # Path to input file (can be PDF, image, etc.)
 output_dir: "./outputs"      # Path to save the output results
 
-# Model Configuration
-model:
-  name: "EleutherAI/gpt-neo-2.7B"         # Hugging Face model for text generation
-  max_length: 100                         # Max length of generated text
-  temperature: 0.7                        # Controls randomness in the generation
+# Model Configuration (removed: generation is disabled)
 
 # Parser Configuration
 parser:

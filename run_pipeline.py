@@ -43,15 +43,8 @@ def parse_document(file_path, parser_config):
 
 # Generate text using a Hugging Face model
 def generate_text(prompt, model_name, max_length, temperature):
-    try:
-        # Lightweight fallback generation: echo first N chars and basic summary placeholder.
-        if not prompt:
-            return ""
-        snippet = prompt[: max(32, min(256, len(prompt)))]
-        return f"[offline-generation disabled] Input snippet: {snippet}..."
-    except Exception as e:
-        logging.error(f"Error generating text: {e}")
-        return None
+    # Deprecated: generation removed to avoid duplicate/unnecessary outputs
+    return None
     
 # Image Parsing using Tesseract OCR
 def parse_image(image_path):
@@ -97,31 +90,23 @@ def run_pipeline(config):
         logging.error(f"Input file {input_file} does not exist.")
         return
 
-    # Generate text based on the parsed document
-    generated_text = generate_text(document_text, config['model']['name'], 
-                                   config['model']['max_length'], config['model']['temperature'])
-    
-    if generated_text:
-        logging.info(f"Generated text: {generated_text}")
-        
-        # Save the result to the output directory
-        os.makedirs(output_dir, exist_ok=True)
-        output_file = os.path.join(output_dir, "generated_output.txt")
-        with open(output_file, 'w') as file:
-            file.write(generated_text)
-        
-        logging.info(f"Output saved to {output_file}")
-    else:
-        logging.error("Text generation failed.")
+    # Save full parsed document text only
+    os.makedirs(output_dir, exist_ok=True)
+    parsed_text_file = os.path.join(output_dir, "parsed_text.txt")
+    try:
+        with open(parsed_text_file, 'w', encoding='utf-8', newline='') as ftxt:
+            ftxt.write(document_text or "")
+        logging.info(f"Parsed text saved to {parsed_text_file}")
+    except Exception as e:
+        logging.error(f"Failed to write parsed text file: {e}")
 
     # If tables were extracted, you can also save the tables (optional)
     if tables:
         tables_output_file = os.path.join(output_dir, "extracted_tables.md")
-        with open(tables_output_file, 'w') as file:
+        with open(tables_output_file, 'w', encoding='utf-8', newline='') as file:
             for i, table in enumerate(tables):
                 file.write(f"Table {i + 1}:\n")
                 file.write(table.to_markdown() + "\n")
-        
         logging.info(f"Extracted tables saved to {tables_output_file}")
 
 # Run the pipeline

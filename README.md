@@ -53,13 +53,13 @@ python rag_pipeline.py build --config config.yaml --data-dir ./data --index-path
 python rag_pipeline.py query --config config.yaml --index-path ./rag_index.json --question "What is the invoice total?"
 ```
 
-3) Simple pipeline demo for a single document (parses and writes a small generated file):
+3) Parse a single document:
 
 ```bash
 python run_pipeline.py
 ```
 
-This will parse the document at `config.yaml.input_file` and write an illustrative output to `outputs/generated_output.txt`.
+This will parse the document at `config.yaml.input_file` and write the full extracted text to `outputs/parsed_text.txt`. If tables are detected, they are saved to `outputs/extracted_tables.md`.
 
 ### Notes
 - The TF-IDF implementation is intentionally simple and dependency-light to maximize compatibility on Windows + Python 3.13.

@@ -3,3 +3,64 @@
 2025-09-05 14:26:32,909 - INFO - Building corpus from ./data ...
 2025-09-05 14:26:32,909 - INFO - Built 1 chunks. Computing TF-IDF index ...
 2025-09-05 14:26:32,910 - INFO - Index saved to ./rag_index.json
+2025-09-05 14:40:48,588 - INFO - Pipeline started.
+2025-09-05 14:40:48,588 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:40:51,679 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:40:51,679 - WARNING - No module named 'jpype'
+2025-09-05 14:40:53,237 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:40:53,239 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:40:53,239 - INFO - Document parsed successfully.
+2025-09-05 14:40:53,239 - INFO - Generated text: [offline-generation disabled] Input snippet: Ritankar Mondal | CH23B105 Indian Institute of Technology Madras Hem Sheela Model School Hem Sheela Model School Summary AI/ML engineer skilled in LLM deployment, RAG pipelines, and model fine\u2011tuning (LoRA, PEFT). Builds scalable, low\u2011latency ML systems wi...
+2025-09-05 14:43:45,331 - INFO - Pipeline started.
+2025-09-05 14:43:45,331 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:43:46,558 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:43:46,558 - WARNING - No module named 'jpype'
+2025-09-05 14:43:47,623 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:43:47,625 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:43:47,625 - INFO - Document parsed successfully.
+2025-09-05 14:43:47,625 - INFO - Generated text: [offline-generation disabled] Input snippet: Ritankar Mondal | CH23B105 Indian Institute of Technology Madras Hem Sheela Model School Hem Sheela Model School Summary AI/ML engineer skilled in LLM deployment, RAG pipelines, and model fine\u2011tuning (LoRA, PEFT). Builds scalable, low\u2011latency ML systems wi...
+2025-09-05 14:44:53,569 - INFO - Pipeline started.
+2025-09-05 14:44:53,569 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:44:54,840 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:44:54,840 - WARNING - No module named 'jpype'
+2025-09-05 14:44:55,864 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:44:55,866 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:44:55,866 - INFO - Document parsed successfully.
+2025-09-05 14:44:55,866 - INFO - Generated text: [offline-generation disabled] Input snippet: Ritankar Mondal | CH23B105 Indian Institute of Technology Madras Hem Sheela Model School Hem Sheela Model School Summary AI/ML engineer skilled in LLM deployment, RAG pipelines, and model fine\u2011tuning (LoRA, PEFT). Builds scalable, low\u2011latency ML systems wi...
+2025-09-05 14:44:55,866 - INFO - Output saved to ./outputs\generated_output.txt
+2025-09-05 14:45:00,885 - INFO - Pipeline started.
+2025-09-05 14:45:00,886 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:45:02,147 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:45:02,147 - WARNING - No module named 'jpype'
+2025-09-05 14:45:03,189 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:45:03,191 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:45:03,191 - INFO - Document parsed successfully.
+2025-09-05 14:45:03,191 - INFO - Generated text: [offline-generation disabled] Input snippet: Ritankar Mondal | CH23B105 Indian Institute of Technology Madras Hem Sheela Model School Hem Sheela Model School Summary AI/ML engineer skilled in LLM deployment, RAG pipelines, and model fine\u2011tuning (LoRA, PEFT). Builds scalable, low\u2011latency ML systems wi...
+2025-09-05 14:45:03,192 - INFO - Output saved to ./outputs\generated_output.txt
+2025-09-05 14:45:26,247 - INFO - Pipeline started.
+2025-09-05 14:45:26,247 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:45:27,446 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:45:27,446 - WARNING - No module named 'jpype'
+2025-09-05 14:45:28,451 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:45:28,453 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:45:28,453 - INFO - Document parsed successfully.
+2025-09-05 14:45:28,453 - INFO - Generated text: [offline-generation disabled] Input snippet: Ritankar Mondal | CH23B105 Indian Institute of Technology Madras Hem Sheela Model School Hem Sheela Model School Summary AI/ML engineer skilled in LLM deployment, RAG pipelines, and model fine\u2011tuning (LoRA, PEFT). Builds scalable, low\u2011latency ML systems wi...
+2025-09-05 14:45:28,453 - INFO - Output saved to ./outputs\generated_output.txt
+2025-09-05 14:46:26,556 - INFO - Pipeline started.
+2025-09-05 14:46:26,557 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:46:27,801 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:46:27,801 - WARNING - No module named 'jpype'
+2025-09-05 14:46:28,871 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:46:28,874 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:46:28,874 - INFO - Document parsed successfully.
+2025-09-05 14:46:28,874 - INFO - Generated text: [offline-generation disabled] Input snippet: Ritankar Mondal | CH23B105 Indian Institute of Technology Madras Hem Sheela Model School Hem Sheela Model School Summary AI/ML engineer skilled in LLM deployment, RAG pipelines, and model fine\u2011tuning (LoRA, PEFT). Builds scalable, low\u2011latency ML systems wi...
+2025-09-05 14:46:28,875 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-05 14:46:28,875 - INFO - Output saved to ./outputs\generated_output.txt
+2025-09-05 14:52:38,448 - INFO - Pipeline started.
+2025-09-05 14:52:38,448 - INFO - Parsing PDF file: sample.pdf
+2025-09-05 14:52:39,746 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-05 14:52:39,746 - WARNING - No module named 'jpype'
+2025-09-05 14:52:40,752 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-05 14:52:40,753 - INFO - Extracted 0 tables from the document.
+2025-09-05 14:52:40,753 - INFO - Document parsed successfully.
+2025-09-05 14:52:40,754 - INFO - Parsed text saved to ./outputs\parsed_text.txt
