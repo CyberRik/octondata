@@ -1,8 +1,8 @@
 # config.yaml
 
 # Input and Output Paths
-input_file: "/path/to/your/document.pdf"  # Path to input file (can be PDF, image, etc.)
-output_dir: "/path/to/output/"            # Path to save the output results
+input_file: "./sample.pdf"  # Path to input file (can be PDF, image, etc.)
+output_dir: "./outputs"      # Path to save the output results
 
 # Model Configuration
 model:
@@ -25,6 +25,14 @@ retrieval:
 logging:
   enable_logging: true                    # Enable logging for the pipeline
   log_file: "pipeline.log"                # Log file name
+
+# RAG Pipeline Configuration
+rag:
+  data_dir: "./data"          # Directory containing PDFs/images/txt to index
+  index_path: "./rag_index.json"
+  chunk_size: 500
+  chunk_overlap: 50
+  top_k: 3
 
 # General Settings
 general:

@@ -2,7 +2,6 @@ import yaml
 import os
 import logging
 from od_parse import parse_pdf
-from transformers import pipeline
 import pytesseract
 from PIL import Image
 
@@ -45,11 +44,13 @@ def parse_document(file_path, parser_config):
 # Generate text using a Hugging Face model
 def generate_text(prompt, model_name, max_length, temperature):
     try:
-        generator = pipeline('text-generation', model=model_name)
-        response = generator(prompt, max_length=max_length, temperature=temperature)
-        return response[0]['generated_text']
+        # Lightweight fallback generation: echo first N chars and basic summary placeholder.
+        if not prompt:
+            return ""
+        snippet = prompt[: max(32, min(256, len(prompt)))]
+        return f"[offline-generation disabled] Input snippet: {snippet}..."
     except Exception as e:
-        logging.error(f"Error generating text with model {model_name}: {e}")
+        logging.error(f"Error generating text: {e}")
         return None
     
 # Image Parsing using Tesseract OCR

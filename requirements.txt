@@ -1,23 +1,21 @@
 # For parsing unstructured data (od-parse)
-git+https://github.com/octondata/od-parse.git  # Assuming od-parse is hosted on GitHub
+git+https://github.com/octondata/od-parse.git
 
-# For NLP and generation (using Hugging Face Transformers instead of OpenAI)
-transformers==4.26.1  # For text generation models like GPT-2, GPT-3, etc.
-torch==2.7.0          # Compatible version of PyTorch (works well with Python 3.13)
+# For NLP and generation (removed heavy deps to avoid Rust build on Py 3.13)
 
-# For document retrieval (e.g., FAISS, Pinecone, or Weaviate)
-faiss-cpu==1.10.0      # Later version of FAISS (which should work with your environment)
+# For document retrieval (e.g., FAISS)
+faiss-cpu==1.10.0
 
 # For working with configuration files (YAML or JSON)
-pyyaml==6.0
+pyyaml==6.0.2
 
 # For handling PDFs
-PyMuPDF==1.18.19      # To parse PDFs if needed
+PyMuPDF==1.24.11
 
 # For working with images (if parsing images)
-Pillow==9.2.0         # For image processing (if using images)
-pytesseract==0.3.8    # Tesseract OCR for image text extraction
+Pillow==10.4.0
+pytesseract==0.3.13
 
 # Other useful libraries
-numpy==1.24.2
-requests==2.28.1      # For any HTTP requests (if needed)
+numpy==2.1.3
+requests==2.32.3
