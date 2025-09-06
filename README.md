@@ -1,14 +1,16 @@
-## Minimal RAG Pipeline using od-parse
+## Advanced RAG Pipeline using od-parse
 
-This project demonstrates a lightweight, dependency-friendly unstructured data pipeline using the open-source `od-parse` library for parsing, and a pure-Python TF-IDF retriever for RAG-style retrieval.
+This project demonstrates a comprehensive unstructured data pipeline using the open-source `od-parse` library for advanced parsing, and a pure-Python TF-IDF retriever for RAG-style retrieval.
 
 Source for `od-parse`: [octondata/od-parse](https://github.com/octondata/od-parse)
 
 ### Features
-- Parse PDFs via `od-parse` and images via Tesseract OCR
-- Chunk text into overlapping segments
-- Build a TF-IDF index (no Rust/CUDA requirements)
-- Query the index from the CLI and view top-K relevant chunks
+- **Advanced PDF Parsing**: Extract text, tables, forms, document structure, and handwritten content
+- **Comprehensive OCR**: Built-in OCR with handwritten text detection
+- **Smart Image Naming**: Descriptive naming for extracted images (text_, table_, image_ prefixes)
+- **RAG Pipeline**: Chunk text into overlapping segments and build TF-IDF index
+- **Multiple Output Formats**: Text summary and structured JSON output
+- **Dependency-Light**: Pure Python implementation with minimal external dependencies
 
 ### Requirements
 - Python 3.13 (tested)
@@ -53,17 +55,29 @@ python rag_pipeline.py build --config config.yaml --data-dir ./data --index-path
 python rag_pipeline.py query --config config.yaml --index-path ./rag_index.json --question "What is the invoice total?"
 ```
 
-3) Parse a single document:
+3) Parse a single document with advanced features:
 
 ```bash
 python run_pipeline.py
 ```
 
-This will parse the document at `config.yaml.input_file` and write the full extracted text to `outputs/parsed_text.txt`.
+This will parse the document at `config.yaml.input_file` using advanced `od-parse` features and create:
 
-Enhancements:
-- If page images are generated alongside the PDF (e.g., `sample_images/`), the pipeline will OCR those images and append that text to `parsed_text.txt` as well.
-- Exporting tables to a separate Markdown file has been removed to keep output focused and non-redundant.
+**Outputs:**
+- `outputs/parsed_text.txt` - Comprehensive text with all extracted content:
+  - Main document text
+  - OCR extracted content (handwritten text, images)
+  - Extracted tables in markdown format
+  - Form fields and their values
+  - Document structure (headings, paragraphs, lists)
+- `outputs/parsed_data.json` - Structured JSON with all extraction results
+
+**Advanced Features:**
+- **Tables**: Neural network-based table extraction with markdown output
+- **Forms**: Automatic form field detection and value extraction
+- **Structure**: Document hierarchy with headings, paragraphs, lists
+- **OCR**: Handwritten text detection and image OCR
+- **Smart Naming**: Extracted images use descriptive prefixes (text_, table_, image_)
 
 ### Notes
 - The TF-IDF implementation is intentionally simple and dependency-light to maximize compatibility on Windows + Python 3.13.

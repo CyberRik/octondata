@@ -1,7 +1,14 @@
 # For parsing unstructured data (od-parse)
 git+https://github.com/octondata/od-parse.git
 
-# For NLP and generation (removed heavy deps to avoid Rust build on Py 3.13)
+# Base Dependencies for od-parse
+pdfminer.six>=20221105
+Pillow>=9.2.0
+pdf2image>=1.16.3
+opencv-python>=4.7.0.72
+tabula-py>=2.7.0
+numpy>=1.24.2
+pandas>=1.5.0
 
 # For document retrieval (e.g., FAISS)
 faiss-cpu==1.10.0
@@ -12,9 +19,5 @@ pyyaml==6.0.2
 # For handling PDFs
 PyMuPDF==1.24.11
 
-# For working with images (if parsing images)
-### Removed Pillow/pytesseract; od-parse handles OCR internally
-
 # Other useful libraries
-numpy==2.1.3
 requests==2.32.3

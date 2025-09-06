@@ -276,3 +276,224 @@
 2025-09-05 15:35:40,585 - INFO - Extracted 2 tables from the document.
 2025-09-05 15:35:40,585 - INFO - Document parsed successfully.
 2025-09-05 15:35:40,586 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-06 00:08:48,879 - INFO - Pipeline started.
+2025-09-06 00:08:48,880 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:08:48,880 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:08:50,396 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:08:50,396 - WARNING - No module named 'jpype'
+2025-09-06 00:13:06,568 - INFO - Pipeline started.
+2025-09-06 00:13:06,568 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:13:06,569 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:13:08,056 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:13:08,056 - WARNING - No module named 'jpype'
+2025-09-06 00:13:08,721 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:08,753 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:08,796 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:08,822 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:08,822 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:13:08,822 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:13:08,823 - INFO - Document parsed successfully.
+2025-09-06 00:13:08,823 - INFO - Parsed text saved to ./outputs\parsed_text.txt
+2025-09-06 00:13:08,823 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:13:10,639 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:10,671 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:10,713 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:10,740 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:13:10,742 - INFO - Structured data saved to ./outputs\parsed_data.json
+2025-09-06 00:17:15,116 - INFO - Pipeline started.
+2025-09-06 00:17:15,117 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:17:15,117 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:17:18,225 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:17:18,225 - WARNING - No module named 'jpype'
+2025-09-06 00:17:39,184 - INFO - Pipeline started.
+2025-09-06 00:17:39,184 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:17:39,184 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:17:41,784 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:17:41,784 - WARNING - No module named 'jpype'
+2025-09-06 00:17:43,352 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:17:43,414 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:17:43,501 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:17:43,561 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:17:43,563 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:17:43,563 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:17:43,563 - INFO - Document parsed successfully.
+2025-09-06 00:17:43,564 - ERROR - Failed to write parsed text file: [Errno 22] Invalid argument: './outputs\\parsed_text.txt'
+2025-09-06 00:23:13,924 - INFO - Pipeline started.
+2025-09-06 00:23:13,925 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:23:13,925 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:23:16,985 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:23:16,985 - WARNING - No module named 'jpype'
+2025-09-06 00:23:18,534 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:18,606 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:18,678 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:18,742 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:18,743 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:23:18,743 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:23:18,743 - INFO - Document parsed successfully.
+2025-09-06 00:23:18,747 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 00:23:18,765 - INFO - Table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 00:23:18,768 - INFO - Table 2 saved to ./outputs\tables\table_2.csv
+2025-09-06 00:23:18,768 - ERROR - Failed to write output files: name 'parsed_data' is not defined
+2025-09-06 00:23:48,319 - INFO - Pipeline started.
+2025-09-06 00:23:48,319 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:23:48,320 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:23:51,073 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:23:51,073 - WARNING - No module named 'jpype'
+2025-09-06 00:23:52,589 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:52,662 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:52,757 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:52,819 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:23:52,821 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:23:52,821 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:23:52,821 - INFO - Document parsed successfully.
+2025-09-06 00:23:52,823 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 00:23:52,834 - INFO - Table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 00:23:52,837 - INFO - Table 2 saved to ./outputs\tables\table_2.csv
+2025-09-06 00:23:52,837 - ERROR - Failed to write output files: name 'parsed_data' is not defined
+2025-09-06 00:26:13,807 - INFO - Pipeline started.
+2025-09-06 00:26:13,807 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:26:13,808 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:26:16,507 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:26:16,507 - WARNING - No module named 'jpype'
+2025-09-06 00:26:17,918 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:26:17,997 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:26:18,097 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:26:18,163 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:26:18,164 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:26:18,164 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:26:18,164 - INFO - Document parsed successfully.
+2025-09-06 00:26:18,167 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 00:26:18,180 - INFO - Clean table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 00:26:18,180 - ERROR - Failed to write output files: name 'parsed_data' is not defined
+2025-09-06 00:45:34,437 - INFO - Pipeline started.
+2025-09-06 00:45:34,438 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:45:34,438 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:45:37,376 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:45:37,376 - WARNING - No module named 'jpype'
+2025-09-06 00:45:38,869 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:45:38,937 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:45:39,023 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:45:39,081 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:45:39,083 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:45:39,083 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:45:39,083 - INFO - Document parsed successfully.
+2025-09-06 00:45:39,085 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 00:45:39,103 - INFO - Clean table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 00:45:39,103 - ERROR - Failed to write output files: name 'parsed_data' is not defined
+2025-09-06 00:50:49,534 - INFO - Pipeline started.
+2025-09-06 00:50:49,535 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:50:49,535 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:50:52,246 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:50:52,246 - WARNING - No module named 'jpype'
+2025-09-06 00:50:53,661 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:50:53,731 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:50:53,827 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:50:53,885 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:50:53,887 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:50:53,887 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:50:53,887 - INFO - Document parsed successfully.
+2025-09-06 00:50:53,890 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 00:50:53,900 - INFO - Clean table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 00:50:53,900 - ERROR - Failed to write output files: name 'parsed_data' is not defined
+2025-09-06 00:51:34,623 - INFO - Pipeline started.
+2025-09-06 00:51:34,624 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:51:34,624 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:51:37,360 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:51:37,360 - WARNING - No module named 'jpype'
+2025-09-06 00:51:38,735 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:51:38,802 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:51:38,890 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:51:38,958 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:51:38,960 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:51:38,960 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:51:38,960 - INFO - Document parsed successfully.
+2025-09-06 00:51:38,963 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 00:51:38,976 - INFO - Clean table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 00:51:38,976 - ERROR - Failed to write output files: name 'parsed_data' is not defined
+2025-09-06 00:53:05,626 - INFO - Pipeline started.
+2025-09-06 00:53:05,626 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 00:53:05,627 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:53:08,383 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 00:53:08,384 - WARNING - No module named 'jpype'
+2025-09-06 00:53:09,920 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:09,989 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:10,087 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:10,150 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:10,151 - INFO - Appended 2 tables to parsed text.
+2025-09-06 00:53:10,152 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 00:53:10,152 - INFO - Document parsed successfully.
+2025-09-06 00:53:10,155 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 00:53:10,167 - INFO - Clean table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 00:53:10,167 - INFO - Found 4 images to process
+2025-09-06 00:53:10,167 - INFO - After deduplication: 4 unique images
+2025-09-06 00:53:10,167 - INFO - Processing image: sample_images\page_1.png
+2025-09-06 00:53:10,168 - INFO - Classified as other image: sample_images\page_1.png
+2025-09-06 00:53:10,168 - INFO - Processing image: sample_images\page_1_img_53.png
+2025-09-06 00:53:10,168 - INFO - Classified as table image: sample_images\page_1_img_53.png
+2025-09-06 00:53:10,168 - INFO - Processing image: sample_images\page_1_img_59.png
+2025-09-06 00:53:10,168 - INFO - Classified as table image: sample_images\page_1_img_59.png
+2025-09-06 00:53:10,168 - INFO - Processing image: sample_images\page_1_img_72.png
+2025-09-06 00:53:10,169 - INFO - Classified as table image: sample_images\page_1_img_72.png
+2025-09-06 00:53:10,173 - INFO - Table image saved as table_1.png
+2025-09-06 00:53:10,175 - INFO - Table image saved as table_2.png
+2025-09-06 00:53:10,176 - INFO - Table image saved as table_3.png
+2025-09-06 00:53:10,179 - INFO - Image saved as image_1.png
+2025-09-06 00:53:10,179 - INFO - Image processing completed. Table: 3, Text: 0, Other: 1
+2025-09-06 00:53:10,179 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 00:53:14,256 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:14,326 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:14,416 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:14,473 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 00:53:14,476 - INFO - Complete structured data saved to ./outputs\complete_data.json
+2025-09-06 01:13:01,749 - INFO - Pipeline started.
+2025-09-06 01:13:01,750 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 01:13:01,751 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 01:13:04,855 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 01:13:04,855 - WARNING - No module named 'jpype'
+2025-09-06 01:13:06,383 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:06,455 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:06,572 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:06,648 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:06,649 - INFO - Appended 2 tables to parsed text.
+2025-09-06 01:13:06,650 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 01:13:06,650 - INFO - Document parsed successfully.
+2025-09-06 01:13:06,653 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 01:13:06,673 - INFO - Clean table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 01:13:06,673 - INFO - Found 4 images to process
+2025-09-06 01:13:06,674 - INFO - Found table image: sample_images\page_1_img_53.png
+2025-09-06 01:13:06,674 - INFO - Found table image: sample_images\page_1_img_59.png
+2025-09-06 01:13:06,675 - INFO - Found table image: sample_images\page_1_img_72.png
+2025-09-06 01:13:06,679 - INFO - Table image saved as table_content.png
+2025-09-06 01:13:06,679 - INFO - Image processing completed. Copied 3 table images
+2025-09-06 01:13:06,679 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 01:13:10,901 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:10,989 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:11,095 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:11,157 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:13:11,160 - INFO - Complete structured data saved to ./outputs\complete_data.json
+2025-09-06 01:16:33,567 - INFO - Pipeline started.
+2025-09-06 01:16:33,568 - INFO - Starting advanced PDF parsing with od-parse...
+2025-09-06 01:16:33,568 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 01:16:36,342 - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-06 01:16:36,342 - WARNING - No module named 'jpype'
+2025-09-06 01:16:37,810 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:37,895 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:37,989 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:38,046 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:38,047 - INFO - Appended 2 tables to parsed text.
+2025-09-06 01:16:38,048 - INFO - Advanced parsing completed. Extracted 2 tables, 0 forms.
+2025-09-06 01:16:38,048 - INFO - Document parsed successfully.
+2025-09-06 01:16:38,050 - INFO - Text content saved to ./outputs\text\extracted_text.txt
+2025-09-06 01:16:38,062 - INFO - Clean table 1 saved to ./outputs\tables\table_1.csv
+2025-09-06 01:16:38,062 - INFO - Found 4 images to process
+2025-09-06 01:16:38,065 - INFO - Image saved as full_page.png
+2025-09-06 01:16:38,067 - INFO - Image saved as table_crop_2.png
+2025-09-06 01:16:38,069 - INFO - Image saved as table_crop_3.png
+2025-09-06 01:16:38,071 - INFO - Image saved as table_crop_4.png
+2025-09-06 01:16:38,071 - INFO - Image processing completed. Processed 4 images
+2025-09-06 01:16:38,072 - INFO - Parsing PDF file: sample.pdf
+2025-09-06 01:16:42,070 - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:42,154 - ERROR - Error extracting handwritten content from sample_images\page_1_img_53.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:42,250 - ERROR - Error extracting handwritten content from sample_images\page_1_img_59.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:42,311 - ERROR - Error extracting handwritten content from sample_images\page_1_img_72.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-06 01:16:42,314 - INFO - Complete structured data saved to ./outputs\complete_data.json
