@@ -1,0 +1,37 @@
+# Streamlined PDF Parsing Pipeline Configuration
+# Simple, focused configuration for continuous PDF processing
+
+# Input and Output Settings
+input_file: "./sample.pdf"          # Default input PDF file
+output_dir: "./outputs"             # Output directory for organized content
+
+# File Naming Settings
+use_timestamps: false               # Include timestamps in filenames
+preserve_source_name: true          # Include source PDF name in output files
+
+# Parser Configuration
+parser:
+  pdf: true                         # Enable PDF parsing
+  
+  # PDF-specific settings
+  pdf_config:
+    extract_tables: true            # Extract tables from PDF
+    extract_forms: true             # Extract form fields
+    extract_structure: true         # Extract document structure
+    extract_images: true            # Extract images from PDF
+    ocr: true                       # Enable OCR for scanned PDFs
+    handwritten_detection: true     # Detect handwritten content
+    img2table: true                 # Use neural networks for table extraction
+    image_naming: "descriptive"     # Use descriptive names for images
+
+# Logging Configuration
+logging:
+  enable_logging: true              # Enable logging
+  log_file: "pipeline.log"          # Log file name
+  log_level: "INFO"                 # Log level (DEBUG, INFO, WARNING, ERROR)
+
+# Output Organization
+output_organization:
+  create_subdirectories: true       # Create images/, tables/, text/ subdirectories
+  prevent_overwriting: true         # Prevent file overwriting with unique names
+  save_metadata: true               # Save processing metadata and summaries

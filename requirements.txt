@@ -10,6 +10,38 @@ tabula-py>=2.7.0
 numpy>=1.24.2
 pandas>=1.5.0
 
+# Advanced OCR and Image Processing
+pytesseract>=0.3.10
+opencv-python>=4.7.0.72
+scikit-image>=0.21.0
+
+# Deep Learning and AI Models
+torch>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.2
+
+# VLM (Vision Language Model) Dependencies
+openai>=1.0.0
+anthropic>=0.7.0
+google-generativeai>=0.3.0
+cohere>=4.0.0
+
+# Document Processing and Analysis
+pymupdf>=1.23.0
+pdfplumber>=0.9.0
+camelot-py[cv]>=0.10.1
+img2table>=0.1.0
+
+# Vector Storage and Embeddings
+faiss-cpu>=1.7.4
+chromadb>=0.4.0
+pinecone-client>=2.2.0
+
+# Database and Storage
+psycopg2-binary>=2.9.0
+sqlalchemy>=2.0.0
+chromadb>=0.4.0
+
 # For document retrieval (e.g., FAISS)
 faiss-cpu==1.10.0
 
@@ -19,5 +51,23 @@ pyyaml==6.0.2
 # For handling PDFs
 PyMuPDF==1.24.11
 
-# Other useful libraries
+# Additional AI/ML Libraries
+scikit-learn>=1.3.0
+nltk>=3.8.0
+spacy>=3.6.0
+
+# Image and Document Analysis
+easyocr>=1.7.0
+paddleocr>=2.7.0
+tesserocr>=2.6.0
+
+# API and Web Services
+requests>=2.31.0
+httpx>=0.24.0
+aiohttp>=3.8.0
+
+# Utilities
+tqdm>=4.65.0
+click>=8.1.0
+rich>=13.0.0
 requests==2.32.3

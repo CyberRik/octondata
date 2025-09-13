@@ -1,0 +1,26 @@
+{
+  "data": [
+    [
+      "hello",
+      "mewo",
+      "gross",
+      "store"
+    ],
+    [
+      "dnd",
+      "squirtle",
+      "pikachu",
+      "my"
+    ],
+    [
+      "me",
+      "charmander",
+      "is",
+      "name"
+    ]
+  ],
+  "rows": 3,
+  "columns": 4,
+  "extraction_timestamp": "2025-09-13T21:23:29.210187",
+  "source_file": "sample.pdf"
+}
