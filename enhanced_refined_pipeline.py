@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Refined PDF Parsing Pipeline
-Fixed version that correctly extracts tables and filters relevant images
+Enhanced Refined PDF Parsing Pipeline
+Improved version with better image parsing for embedded images and RAG integration
 """
 
 import os
@@ -22,8 +22,8 @@ from PIL import Image
 from od_parse import parse_pdf
 
 
-class RefinedPipeline:
-    """Refined PDF parsing pipeline with improved table and image extraction"""
+class EnhancedRefinedPipeline:
+    """Enhanced refined PDF parsing pipeline with improved image parsing and RAG integration"""
     
     def __init__(self, config_path: str = "streamlined_config.yaml"):
         self.config = self._load_config(config_path)
@@ -42,12 +42,18 @@ class RefinedPipeline:
         self.use_timestamps = self.config.get('use_timestamps', False)
         self.preserve_source_name = self.config.get('preserve_source_name', True)
         
-        # Content filtering
-        self.min_image_size = (100, 100)  # Minimum image dimensions
-        self.max_image_size = (5000, 5000)  # Maximum image dimensions
+        # Enhanced image filtering for embedded content
+        self.min_image_size = (100, 100)  # Minimum size for embedded images (more inclusive)
+        self.max_image_size = (5000, 5000)
         self.table_confidence_threshold = 0.5
         
-        logging.info("Refined pipeline initialized successfully")
+        # Image analysis parameters
+        self.embedded_image_indicators = [
+            'embedded', 'content', 'figure', 'image', 'photo', 'graphic',
+            'illustration', 'diagram', 'chart', 'picture'
+        ]
+        
+        logging.info("Enhanced refined pipeline initialized successfully")
     
     def _load_config(self, config_path: str) -> Dict:
         """Load configuration from YAML file"""
@@ -79,8 +85,14 @@ class RefinedPipeline:
             },
             'logging': {
                 'enable_logging': True,
-                'log_file': 'refined_pipeline.log',
+                'log_file': 'enhanced_pipeline.log',
                 'log_level': 'INFO'
+            },
+            'rag': {
+                'index_path': './rag_index.json',
+                'chunk_size': 500,
+                'chunk_overlap': 50,
+                'top_k': 3
             }
         }
     
@@ -88,7 +100,7 @@ class RefinedPipeline:
         """Setup logging configuration"""
         log_config = self.config.get('logging', {})
         if log_config.get('enable_logging', True):
-            log_file = log_config.get('log_file', 'refined_pipeline.log')
+            log_file = log_config.get('log_file', 'enhanced_pipeline.log')
             log_level = getattr(logging, log_config.get('log_level', 'INFO'))
             logging.basicConfig(
                 filename=log_file,
@@ -137,13 +149,139 @@ class RefinedPipeline:
         
         return hashlib.md5(content_str.encode('utf-8')).hexdigest()
     
-    def _is_relevant_image(self, image_path: str) -> bool:
-        """Determine if an image is relevant content (not a table crop or small element)"""
+    def _analyze_image_content(self, image_path: str) -> Dict[str, Any]:
+        """Analyze image content to determine if it's an embedded image"""
         try:
             with Image.open(image_path) as img:
                 width, height = img.size
                 
-                # Check image dimensions
+                # Convert to RGB if necessary
+                if img.mode != 'RGB':
+                    img = img.convert('RGB')
+                
+                # Convert to numpy array for analysis
+                img_array = np.array(img)
+                
+                # Calculate various metrics
+                analysis = {
+                    'dimensions': (width, height),
+                    'aspect_ratio': width / height if height > 0 else 1.0,
+                    'file_size': os.path.getsize(image_path),
+                    'is_embedded': False,
+                    'confidence': 0.0,
+                    'content_type': 'unknown'
+                }
+                
+                # Check if it's likely an embedded image
+                embedded_score = 0.0
+                
+                # 1. Size analysis - embedded images are usually medium-sized, not full page
+                # Exclude very large images (likely full page) and very small images (likely UI elements)
+                if 300 <= width <= 1500 and 300 <= height <= 1200:
+                    embedded_score += 0.4
+                    analysis['content_type'] = 'medium_sized'
+                elif width > 1500 or height > 1200:
+                    # Likely full page or very large element
+                    embedded_score -= 0.3
+                    analysis['content_type'] = 'likely_full_page'
+                elif width < 300 or height < 300:
+                    # Likely small UI element or table crop
+                    embedded_score -= 0.2
+                    analysis['content_type'] = 'likely_ui_element'
+                
+                # 2. Aspect ratio analysis - embedded images often have reasonable aspect ratios
+                aspect_ratio = width / height
+                if 0.5 <= aspect_ratio <= 2.0:  # Reasonable aspect ratio for embedded content
+                    embedded_score += 0.3
+                elif aspect_ratio > 3.0 or aspect_ratio < 0.3:
+                    # Very wide or very tall - likely table or banner
+                    embedded_score -= 0.3
+                    analysis['content_type'] = 'likely_table_or_banner'
+                
+                # 3. Color analysis - embedded images often have rich color content
+                if len(img_array.shape) == 3:
+                    # Calculate color variance
+                    color_variance = np.var(img_array)
+                    if color_variance > 1000:  # Rich color content
+                        embedded_score += 0.3
+                        analysis['content_type'] = 'colorful'
+                    elif color_variance < 200:  # Very low variance - likely text or simple graphic
+                        embedded_score -= 0.2
+                        analysis['content_type'] = 'low_color_variance'
+                
+                # 4. Edge detection - embedded images often have clear edges
+                gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
+                edges = cv2.Canny(gray, 50, 150)
+                edge_density = np.sum(edges > 0) / (width * height)
+                if edge_density > 0.02:  # Has clear edges
+                    embedded_score += 0.2
+                elif edge_density < 0.005:  # Very few edges - likely solid color or text
+                    embedded_score -= 0.1
+                
+                # 5. Check for text content (OCR) - embedded images might have text
+                try:
+                    import pytesseract
+                    ocr_text = pytesseract.image_to_string(img, config='--psm 6')
+                    text_length = len(ocr_text.strip())
+                    if text_length > 20:  # Has meaningful text
+                        embedded_score += 0.1
+                        analysis['has_text'] = True
+                    elif text_length > 5:  # Some text but not much
+                        embedded_score -= 0.1
+                        analysis['has_text'] = True
+                    else:
+                        analysis['has_text'] = False
+                except:
+                    analysis['has_text'] = False
+                
+                # 6. File size analysis - embedded images usually have reasonable file sizes
+                file_size_mb = analysis['file_size'] / (1024 * 1024)
+                if 0.1 <= file_size_mb <= 2.0:  # Reasonable file size
+                    embedded_score += 0.1
+                elif file_size_mb > 5.0:  # Very large file - likely full page
+                    embedded_score -= 0.2
+                    analysis['content_type'] = 'very_large_file'
+                elif file_size_mb < 0.05:  # Very small file - likely simple graphic
+                    embedded_score -= 0.1
+                    analysis['content_type'] = 'very_small_file'
+                
+                # Determine if it's embedded based on score
+                analysis['is_embedded'] = embedded_score >= 0.6
+                analysis['confidence'] = embedded_score
+                
+                # Final content type classification
+                if embedded_score >= 0.7:
+                    analysis['content_type'] = 'embedded_image'
+                elif embedded_score >= 0.4:
+                    analysis['content_type'] = 'possible_embedded'
+                elif embedded_score >= 0.0:
+                    analysis['content_type'] = 'likely_page_element'
+                else:
+                    analysis['content_type'] = 'likely_ui_element'
+                
+                logging.debug(f"Image analysis for {Path(image_path).name}: embedded={analysis['is_embedded']}, confidence={embedded_score:.2f}, type={analysis['content_type']}")
+                
+                return analysis
+                
+        except Exception as e:
+            logging.warning(f"Failed to analyze image {image_path}: {e}")
+            return {
+                'dimensions': (0, 0),
+                'aspect_ratio': 1.0,
+                'file_size': 0,
+                'is_embedded': False,
+                'confidence': 0.0,
+                'content_type': 'error'
+            }
+    
+    def _is_embedded_image(self, image_path: str) -> bool:
+        """Determine if an image is an embedded content image"""
+        try:
+            # First check basic size requirements
+            with Image.open(image_path) as img:
+                width, height = img.size
+                
+                # Basic size check
                 if width < self.min_image_size[0] or height < self.min_image_size[1]:
                     logging.debug(f"Image too small: {image_path} ({width}x{height})")
                     return False
@@ -151,41 +289,103 @@ class RefinedPipeline:
                 if width > self.max_image_size[0] or height > self.max_image_size[1]:
                     logging.debug(f"Image too large: {image_path} ({width}x{height})")
                     return False
-                
-                # Check if it's likely a table crop (very wide or very tall)
-                aspect_ratio = width / height
-                if aspect_ratio > 5 or aspect_ratio < 0.2:
-                    logging.debug(f"Image aspect ratio suggests table crop: {image_path} ({aspect_ratio:.2f})")
-                    return False
-                
-                # Check filename patterns that suggest table crops
-                filename = Path(image_path).name.lower()
-                if any(pattern in filename for pattern in ['crop', 'table', 'img_']):
-                    logging.debug(f"Image filename suggests table crop: {image_path}")
-                    return False
-                
-                # Check if it's a full page image (likely relevant content)
-                if 'page_' in filename and 'img_' not in filename:
-                    logging.debug(f"Full page image detected: {image_path}")
-                    return True
-                
-                # Additional checks for content relevance
-                # Load image for analysis
-                img_array = np.array(img)
-                
-                # Check for sufficient color variation (not just text)
-                if len(img_array.shape) == 3:
-                    color_variance = np.var(img_array)
-                    if color_variance < 100:  # Very low variance suggests mostly text
-                        logging.debug(f"Image has low color variance: {image_path}")
-                        return False
-                
-                logging.debug(f"Image passed relevance checks: {image_path}")
-                return True
-                
+            
+            # Analyze image content
+            analysis = self._analyze_image_content(image_path)
+            
+            # Check filename patterns that suggest embedded content
+            filename = Path(image_path).name.lower()
+            
+            # Positive indicators for embedded images
+            embedded_indicators = [
+                'embedded', 'content', 'figure', 'image', 'photo', 'graphic',
+                'illustration', 'diagram', 'chart', 'picture', 'cat', 'animal'
+            ]
+            
+            # Strong negative indicators (likely page elements)
+            page_element_indicators = [
+                'page_', 'crop', 'table_', 'form_', 'header', 'footer',
+                'background', 'border', 'frame', 'img_', 'sample_page'
+            ]
+            
+            # Check filename patterns
+            filename_score = 0
+            for indicator in embedded_indicators:
+                if indicator in filename:
+                    filename_score += 0.2  # Reduced weight for filename
+            
+            for indicator in page_element_indicators:
+                if indicator in filename:
+                    filename_score -= 0.5  # Increased penalty for page elements
+            
+            # Combine analysis with filename analysis (filename has less weight)
+            final_score = analysis['confidence'] + (filename_score * 0.3)
+            is_embedded = final_score >= 0.6 and analysis['is_embedded']
+            
+            logging.debug(f"Image {Path(image_path).name}: analysis_conf={analysis['confidence']:.2f}, filename_score={filename_score:.2f}, final_score={final_score:.2f}, embedded={is_embedded}")
+            
+            return is_embedded
+            
         except Exception as e:
-            logging.warning(f"Failed to analyze image {image_path}: {e}")
+            logging.warning(f"Failed to check if image is embedded {image_path}: {e}")
             return False
+    
+    def _select_best_embedded_image(self, embedded_images: List[Tuple[str, int]]) -> List[Tuple[str, int]]:
+        """Select the best embedded image from multiple candidates"""
+        if len(embedded_images) <= 1:
+            return embedded_images
+        
+        best_image = None
+        best_score = -1
+        
+        for image_path, page_num in embedded_images:
+            try:
+                # Analyze each image
+                analysis = self._analyze_image_content(image_path)
+                
+                # Calculate a composite score for ranking
+                score = 0
+                
+                # Prefer images with good confidence
+                score += analysis['confidence'] * 0.4
+                
+                # Prefer medium-sized images (not too large, not too small)
+                width, height = analysis['dimensions']
+                if 400 <= width <= 1200 and 400 <= height <= 1000:
+                    score += 0.3
+                elif width > 1200 or height > 1000:
+                    score -= 0.2  # Penalize very large images
+                
+                # Prefer images with good aspect ratios
+                aspect_ratio = analysis['aspect_ratio']
+                if 0.6 <= aspect_ratio <= 1.8:
+                    score += 0.2
+                
+                # Prefer images with rich color content
+                if analysis['content_type'] == 'colorful':
+                    score += 0.1
+                
+                # Prefer images that are clearly embedded
+                if analysis['content_type'] == 'embedded_image':
+                    score += 0.2
+                
+                logging.debug(f"Image {Path(image_path).name}: score={score:.2f}, confidence={analysis['confidence']:.2f}")
+                
+                if score > best_score:
+                    best_score = score
+                    best_image = (image_path, page_num)
+                    
+            except Exception as e:
+                logging.warning(f"Failed to analyze image for selection {image_path}: {e}")
+                continue
+        
+        if best_image:
+            logging.info(f"Selected best embedded image: {Path(best_image[0]).name} (score: {best_score:.2f})")
+            return [best_image]
+        else:
+            # Fallback to first image if analysis fails
+            logging.warning("Failed to select best image, using first candidate")
+            return [embedded_images[0]]
     
     def _clean_table_data(self, table_data: List[Dict]) -> List[Dict]:
         """Clean and validate table data"""
@@ -319,8 +519,8 @@ class RefinedPipeline:
             logging.error(f"Failed to parse PDF {pdf_path}: {e}")
             raise
     
-    def extract_images(self, parsed_data: Dict[str, Any], source_file: str) -> List[Dict[str, Any]]:
-        """Extract and filter relevant images from parsed data"""
+    def extract_embedded_images(self, parsed_data: Dict[str, Any], source_file: str) -> List[Dict[str, Any]]:
+        """Extract only embedded images from parsed data"""
         images = []
         
         try:
@@ -338,9 +538,9 @@ class RefinedPipeline:
                 elif isinstance(source, dict):
                     all_images.append(source)
             
-            logging.info(f"Found {len(all_images)} images to analyze")
+            logging.info(f"Found {len(all_images)} images to analyze for embedded content")
             
-            relevant_images = []
+            embedded_images = []
             for i, image_data in enumerate(all_images):
                 try:
                     # Handle different image data formats
@@ -354,26 +554,31 @@ class RefinedPipeline:
                     if not os.path.exists(image_path):
                         continue
                     
-                    # Check if image is relevant content
-                    if self._is_relevant_image(image_path):
-                        relevant_images.append((image_path, i + 1))
-                        logging.info(f"Relevant image found: {Path(image_path).name}")
+                    # Check if image is embedded content
+                    if self._is_embedded_image(image_path):
+                        embedded_images.append((image_path, i + 1))
+                        logging.info(f"Embedded image found: {Path(image_path).name}")
                     else:
-                        logging.debug(f"Filtered out image: {Path(image_path).name}")
+                        logging.debug(f"Filtered out page element: {Path(image_path).name}")
                         
                 except Exception as e:
                     logging.warning(f"Failed to analyze image {i+1}: {e}")
                     continue
             
-            logging.info(f"Filtered to {len(relevant_images)} relevant images")
+            logging.info(f"Filtered to {len(embedded_images)} embedded images")
             
-            # Save relevant images
-            for image_path, page_num in relevant_images:
+            # If multiple embedded images found, select the best one
+            if len(embedded_images) > 1:
+                embedded_images = self._select_best_embedded_image(embedded_images)
+                logging.info(f"Selected best embedded image from {len(embedded_images)} candidates")
+            
+            # Save embedded images
+            for image_path, page_num in embedded_images:
                 try:
                     # Generate unique filename
                     original_name = Path(image_path).name
                     filename = self._generate_unique_filename(
-                        f"page_{page_num}", 
+                        f"embedded_{page_num}", 
                         Path(image_path).suffix[1:], 
                         source_file, 
                         'images'
@@ -384,6 +589,9 @@ class RefinedPipeline:
                     import shutil
                     shutil.copy2(image_path, dest_path)
                     
+                    # Analyze the image for additional metadata
+                    analysis = self._analyze_image_content(image_path)
+                    
                     # Create image metadata
                     image_info = {
                         'original_path': image_path,
@@ -391,21 +599,25 @@ class RefinedPipeline:
                         'filename': filename,
                         'page_number': page_num,
                         'file_size': dest_path.stat().st_size,
-                        'content_hash': self._calculate_content_hash(str(dest_path))
+                        'content_hash': self._calculate_content_hash(str(dest_path)),
+                        'is_embedded': True,
+                        'content_type': analysis.get('content_type', 'unknown'),
+                        'confidence': analysis.get('confidence', 0.0),
+                        'dimensions': analysis.get('dimensions', (0, 0))
                     }
                     
                     images.append(image_info)
-                    logging.info(f"Saved relevant image: {filename}")
+                    logging.info(f"Saved embedded image: {filename}")
                     
                 except Exception as e:
-                    logging.warning(f"Failed to save image {page_num}: {e}")
+                    logging.warning(f"Failed to save embedded image {page_num}: {e}")
                     continue
             
-            logging.info(f"Successfully processed {len(images)} relevant images")
+            logging.info(f"Successfully processed {len(images)} embedded images")
             return images
             
         except Exception as e:
-            logging.error(f"Failed to extract images: {e}")
+            logging.error(f"Failed to extract embedded images: {e}")
             return []
     
     def extract_tables(self, parsed_data: Dict[str, Any], source_file: str) -> List[Dict[str, Any]]:
@@ -532,12 +744,40 @@ class RefinedPipeline:
         
         return '\n'.join(lines)
     
+    def _cleanup_temp_files(self):
+        """Clean up temporary files created during processing"""
+        try:
+            # Clean up sample_images directory (created by od-parse)
+            sample_images_dir = Path("sample_images")
+            if sample_images_dir.exists():
+                import shutil
+                shutil.rmtree(sample_images_dir)
+                logging.info("Cleaned up temporary sample_images directory")
+            
+            # Clean up default outputs directory if it's empty
+            default_outputs = Path("outputs")
+            if default_outputs.exists():
+                # Check if it's empty
+                is_empty = True
+                for subdir in ["images", "tables", "text"]:
+                    subdir_path = default_outputs / subdir
+                    if subdir_path.exists() and list(subdir_path.glob("*")):
+                        is_empty = False
+                        break
+                
+                if is_empty:
+                    shutil.rmtree(default_outputs)
+                    logging.info("Cleaned up empty outputs directory")
+            
+        except Exception as e:
+            logging.warning(f"Failed to clean up temporary files: {e}")
+    
     def process_document(self, pdf_path: str) -> Dict[str, Any]:
-        """Main method to process a PDF document"""
+        """Main method to process a PDF document with enhanced image parsing"""
         start_time = datetime.now()
         
         try:
-            logging.info(f"Starting refined document processing: {pdf_path}")
+            logging.info(f"Starting enhanced document processing: {pdf_path}")
             
             # Validate input file
             if not os.path.exists(pdf_path):
@@ -546,10 +786,13 @@ class RefinedPipeline:
             # Parse PDF
             parsed_data = self.parse_pdf(pdf_path)
             
-            # Extract content with improved filtering
-            images = self.extract_images(parsed_data, pdf_path)
+            # Extract content with enhanced filtering
+            images = self.extract_embedded_images(parsed_data, pdf_path)
             tables = self.extract_tables(parsed_data, pdf_path)
             text = self.extract_text(parsed_data, pdf_path)
+            
+            # Clean up temporary files created by od-parse
+            self._cleanup_temp_files()
             
             # Calculate processing time
             processing_time = (datetime.now() - start_time).total_seconds()
@@ -561,7 +804,7 @@ class RefinedPipeline:
                 'processing_time_seconds': processing_time,
                 'output_directory': str(self.base_output_dir),
                 'content_extracted': {
-                    'images': len(images),
+                    'embedded_images': len(images),
                     'tables': len(tables),
                     'text_files': 1 if text else 0
                 },
@@ -577,8 +820,8 @@ class RefinedPipeline:
             with open(summary_path, 'w', encoding='utf-8') as f:
                 json.dump(summary, f, indent=2, ensure_ascii=False, default=str)
             
-            logging.info(f"Refined document processing completed successfully in {processing_time:.2f}s")
-            logging.info(f"Extracted: {len(images)} relevant images, {len(tables)} clean tables, 1 text file")
+            logging.info(f"Enhanced document processing completed successfully in {processing_time:.2f}s")
+            logging.info(f"Extracted: {len(images)} embedded images, {len(tables)} clean tables, 1 text file")
             
             return summary
             
@@ -602,7 +845,7 @@ class RefinedPipeline:
                 'text': str(self.text_dir)
             },
             'file_counts': {
-                'images': len(list(self.images_dir.glob('*'))),
+                'embedded_images': len(list(self.images_dir.glob('*'))),
                 'tables': len(list(self.tables_dir.glob('*.csv'))),
                 'text_files': len(list(self.text_dir.glob('*.txt')))
             }
@@ -614,7 +857,7 @@ def main():
     """Main function for command-line usage"""
     import argparse
     
-    parser = argparse.ArgumentParser(description="Refined PDF Parsing Pipeline")
+    parser = argparse.ArgumentParser(description="Enhanced Refined PDF Parsing Pipeline")
     parser.add_argument('--input', '-i', required=True, help='Input PDF file path')
     parser.add_argument('--output', '-o', help='Output directory (default: ./outputs)')
     parser.add_argument('--config', '-c', default='streamlined_config.yaml', help='Configuration file')
@@ -628,7 +871,7 @@ def main():
         logging.getLogger().setLevel(logging.DEBUG)
     
     # Initialize pipeline
-    pipeline = RefinedPipeline(args.config)
+    pipeline = EnhancedRefinedPipeline(args.config)
     
     # Override output directory if provided
     if args.output:
@@ -646,7 +889,7 @@ def main():
     result = pipeline.process_document(args.input)
     
     if result['status'] == 'success':
-        print(f"✅ Document processed successfully with refined pipeline!")
+        print(f"✅ Document processed successfully with enhanced pipeline!")
         print(f"   Input: {result['source_file']}")
         print(f"   Output: {result['output_directory']}")
         print(f"   Processing time: {result['processing_time_seconds']:.2f}s")
@@ -655,7 +898,7 @@ def main():
         # Show file counts
         stats = pipeline.get_processing_stats()
         print(f"   Files created:")
-        print(f"     - Images: {stats['file_counts']['images']}")
+        print(f"     - Embedded Images: {stats['file_counts']['embedded_images']}")
         print(f"     - Tables: {stats['file_counts']['tables']}")
         print(f"     - Text files: {stats['file_counts']['text_files']}")
         

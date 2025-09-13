@@ -1,0 +1,50 @@
+2025-09-14 00:17:25,223 - root - INFO - Output directories created at: outputs
+2025-09-14 00:17:25,223 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-14 00:17:25,224 - root - INFO - Output directories created at: enhanced_output
+2025-09-14 00:17:25,224 - root - INFO - Starting enhanced document processing: sample.pdf
+2025-09-14 00:17:25,225 - root - INFO - Starting PDF parsing: sample.pdf
+2025-09-14 00:17:25,225 - od_parse.parser.pdf_parser - INFO - Parsing PDF file: sample.pdf
+2025-09-14 00:17:27,015 - tabula.backend - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-14 00:17:27,016 - tabula.backend - WARNING - No module named 'jpype'
+2025-09-14 00:17:27,772 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-14 00:17:27,845 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-14 00:17:27,876 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_14.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-14 00:17:27,877 - root - INFO - PDF parsing completed successfully
+2025-09-14 00:17:27,877 - root - INFO - Found 3 images to analyze for embedded content
+2025-09-14 00:17:28,664 - root - INFO - Embedded image found: page_1_img_1.png
+2025-09-14 00:17:28,701 - root - INFO - Filtered to 1 embedded images
+2025-09-14 00:17:29,005 - root - INFO - Saved embedded image: sample_embedded_2.png
+2025-09-14 00:17:29,005 - root - INFO - Successfully processed 1 embedded images
+2025-09-14 00:17:29,005 - root - INFO - Found 2 table sources to analyze
+2025-09-14 00:17:29,006 - root - INFO - Selected best table with 3 rows and score 0.14
+2025-09-14 00:17:29,011 - root - INFO - Saved cleaned table: sample_table.csv (3 rows)
+2025-09-14 00:17:29,012 - root - INFO - Saved cleaned text content: sample_extracted_text.txt
+2025-09-14 00:17:29,013 - root - INFO - Cleaned up temporary sample_images directory
+2025-09-14 00:17:29,014 - root - INFO - Cleaned up empty outputs directory
+2025-09-14 00:17:29,015 - root - INFO - Enhanced document processing completed successfully in 3.79s
+2025-09-14 00:17:29,015 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
+2025-09-14 00:17:49,788 - root - INFO - Output directories created at: outputs
+2025-09-14 00:17:49,788 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-14 00:17:49,789 - root - INFO - Output directories created at: enhanced_output
+2025-09-14 00:17:49,789 - root - INFO - Starting enhanced document processing: sample.pdf
+2025-09-14 00:17:49,789 - root - INFO - Starting PDF parsing: sample.pdf
+2025-09-14 00:17:49,789 - od_parse.parser.pdf_parser - INFO - Parsing PDF file: sample.pdf
+2025-09-14 00:17:51,342 - tabula.backend - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-14 00:17:51,343 - tabula.backend - WARNING - No module named 'jpype'
+2025-09-14 00:17:52,073 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-14 00:17:52,145 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-14 00:17:52,178 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_14.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-14 00:17:52,179 - root - INFO - PDF parsing completed successfully
+2025-09-14 00:17:52,179 - root - INFO - Found 3 images to analyze for embedded content
+2025-09-14 00:17:52,896 - root - INFO - Embedded image found: page_1_img_1.png
+2025-09-14 00:17:52,925 - root - INFO - Filtered to 1 embedded images
+2025-09-14 00:17:53,222 - root - INFO - Saved embedded image: sample_embedded_2.png
+2025-09-14 00:17:53,222 - root - INFO - Successfully processed 1 embedded images
+2025-09-14 00:17:53,222 - root - INFO - Found 2 table sources to analyze
+2025-09-14 00:17:53,222 - root - INFO - Selected best table with 3 rows and score 0.14
+2025-09-14 00:17:53,228 - root - INFO - Saved cleaned table: sample_table.csv (3 rows)
+2025-09-14 00:17:53,229 - root - INFO - Saved cleaned text content: sample_extracted_text.txt
+2025-09-14 00:17:53,230 - root - INFO - Cleaned up temporary sample_images directory
+2025-09-14 00:17:53,232 - root - INFO - Cleaned up empty outputs directory
+2025-09-14 00:17:53,232 - root - INFO - Enhanced document processing completed successfully in 3.44s
+2025-09-14 00:17:53,232 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
