@@ -9,6 +9,7 @@
 
 2. **Install Tesseract OCR** (required for text extraction):
    - **Windows**: Download from [GitHub](https://github.com/UB-Mannheim/tesseract/wiki)
+   winget install --id UB-Mannheim.TesseractOCR
    - **macOS**: `brew install tesseract`
    - **Linux**: `sudo apt-get install tesseract-ocr`
 

@@ -1,0 +1,66 @@
+2025-09-16 21:51:30,301 - root - INFO - Output directories created at: outputs
+2025-09-16 21:51:30,302 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:51:30,302 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:51:30,302 - root - INFO - Processing document and building RAG index: sample.pdf
+2025-09-16 21:51:30,302 - root - INFO - Starting enhanced document processing: sample.pdf
+2025-09-16 21:51:30,302 - root - INFO - Starting PDF parsing: sample.pdf
+2025-09-16 21:51:30,302 - od_parse.parser.pdf_parser - INFO - Parsing PDF file: sample.pdf
+2025-09-16 21:51:31,677 - tabula.backend - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-16 21:51:31,678 - tabula.backend - WARNING - No module named 'jpype'
+2025-09-16 21:51:32,306 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:51:32,366 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:51:32,394 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_14.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:51:32,394 - root - INFO - PDF parsing completed successfully
+2025-09-16 21:51:32,394 - root - INFO - Found 3 images to analyze for embedded content
+2025-09-16 21:51:33,028 - root - INFO - Embedded image found: page_1_img_1.png
+2025-09-16 21:51:33,053 - root - INFO - Filtered to 1 embedded images
+2025-09-16 21:51:33,298 - root - INFO - Saved embedded image: sample_embedded_2.png
+2025-09-16 21:51:33,298 - root - INFO - Successfully processed 1 embedded images
+2025-09-16 21:51:33,298 - root - INFO - Found 2 table sources to analyze
+2025-09-16 21:51:33,298 - root - INFO - Selected best table with 3 rows and score 0.14
+2025-09-16 21:51:33,305 - root - INFO - Saved cleaned table: sample_table.csv (3 rows)
+2025-09-16 21:51:33,305 - root - INFO - Saved cleaned text content: sample_extracted_text.txt
+2025-09-16 21:51:33,306 - root - INFO - Cleaned up temporary sample_images directory
+2025-09-16 21:51:33,307 - root - INFO - Enhanced document processing completed successfully in 3.00s
+2025-09-16 21:51:33,307 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
+2025-09-16 21:51:33,314 - root - INFO - Built corpus with 3 documents from parsed data
+2025-09-16 21:51:33,320 - root - INFO - Computed TF-IDF index with 3 documents
+2025-09-16 21:51:33,321 - root - INFO - Index saved to ./rag_index.json
+2025-09-16 21:51:39,825 - root - INFO - Output directories created at: outputs
+2025-09-16 21:51:39,825 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:51:39,825 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:51:39,835 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:51:39,835 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:51:44,205 - root - INFO - Output directories created at: outputs
+2025-09-16 21:51:44,205 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:51:44,205 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:51:44,205 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:51:44,205 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:51:50,121 - root - INFO - Output directories created at: outputs
+2025-09-16 21:51:50,121 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:51:50,121 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:51:58,807 - root - INFO - Output directories created at: outputs
+2025-09-16 21:51:58,808 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:51:58,808 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:51:58,808 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:51:58,808 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:36,298 - root - INFO - Output directories created at: outputs
+2025-09-16 21:53:36,298 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:53:36,299 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:53:36,299 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:53:36,301 - root - INFO - Retrieved 2 documents for query: hello...
+2025-09-16 21:53:40,698 - root - INFO - Output directories created at: outputs
+2025-09-16 21:53:40,698 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:53:40,698 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:53:40,698 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:53:40,701 - root - INFO - Retrieved 2 documents for query: pikachu...
+2025-09-16 21:53:45,026 - root - INFO - Output directories created at: outputs
+2025-09-16 21:53:45,026 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:53:45,026 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:53:45,027 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:53:45,029 - root - INFO - Retrieved 0 documents for query: table...
+2025-09-16 21:53:49,282 - root - INFO - Output directories created at: outputs
+2025-09-16 21:53:49,282 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:53:49,282 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:53:49,282 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:53:49,285 - root - INFO - Retrieved 1 documents for query: image...

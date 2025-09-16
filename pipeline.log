@@ -48,3 +48,137 @@
 2025-09-14 00:17:53,232 - root - INFO - Cleaned up empty outputs directory
 2025-09-14 00:17:53,232 - root - INFO - Enhanced document processing completed successfully in 3.44s
 2025-09-14 00:17:53,232 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
+2025-09-16 21:37:10,260 - root - INFO - Output directories created at: outputs
+2025-09-16 21:37:10,260 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:37:10,261 - root - INFO - Output directories created at: results
+2025-09-16 21:37:10,261 - root - INFO - Starting enhanced document processing: sample.pdf
+2025-09-16 21:37:10,261 - root - INFO - Starting PDF parsing: sample.pdf
+2025-09-16 21:37:10,261 - od_parse.parser.pdf_parser - INFO - Parsing PDF file: sample.pdf
+2025-09-16 21:37:11,744 - tabula.backend - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-16 21:37:11,744 - tabula.backend - WARNING - No module named 'jpype'
+2025-09-16 21:37:12,562 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:37:12,621 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:37:12,646 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_14.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:37:12,647 - root - INFO - PDF parsing completed successfully
+2025-09-16 21:37:12,647 - root - INFO - Found 3 images to analyze for embedded content
+2025-09-16 21:37:13,294 - root - INFO - Embedded image found: page_1_img_1.png
+2025-09-16 21:37:13,319 - root - INFO - Filtered to 1 embedded images
+2025-09-16 21:37:13,566 - root - INFO - Saved embedded image: sample_embedded_2.png
+2025-09-16 21:37:13,566 - root - INFO - Successfully processed 1 embedded images
+2025-09-16 21:37:13,566 - root - INFO - Found 2 table sources to analyze
+2025-09-16 21:37:13,566 - root - INFO - Selected best table with 3 rows and score 0.14
+2025-09-16 21:37:13,575 - root - INFO - Saved cleaned table: sample_table.csv (3 rows)
+2025-09-16 21:37:13,576 - root - INFO - Saved cleaned text content: sample_extracted_text.txt
+2025-09-16 21:37:13,577 - root - INFO - Cleaned up temporary sample_images directory
+2025-09-16 21:37:13,578 - root - INFO - Cleaned up empty outputs directory
+2025-09-16 21:37:13,578 - root - INFO - Enhanced document processing completed successfully in 3.32s
+2025-09-16 21:37:13,578 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
+2025-09-16 21:37:49,453 - root - INFO - Output directories created at: outputs
+2025-09-16 21:37:49,453 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:37:49,455 - root - INFO - Output directories created at: enhanced_output
+2025-09-16 21:37:49,455 - root - INFO - Starting enhanced document processing: sample.pdf
+2025-09-16 21:37:49,455 - root - INFO - Starting PDF parsing: sample.pdf
+2025-09-16 21:37:49,455 - od_parse.parser.pdf_parser - INFO - Parsing PDF file: sample.pdf
+2025-09-16 21:37:50,797 - tabula.backend - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-16 21:37:50,797 - tabula.backend - WARNING - No module named 'jpype'
+2025-09-16 21:37:51,405 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:37:51,463 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:37:51,490 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_14.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:37:51,491 - root - INFO - PDF parsing completed successfully
+2025-09-16 21:37:51,491 - root - INFO - Found 3 images to analyze for embedded content
+2025-09-16 21:37:52,113 - root - INFO - Embedded image found: page_1_img_1.png
+2025-09-16 21:37:52,136 - root - INFO - Filtered to 1 embedded images
+2025-09-16 21:37:52,379 - root - INFO - Saved embedded image: sample_embedded_2.png
+2025-09-16 21:37:52,379 - root - INFO - Successfully processed 1 embedded images
+2025-09-16 21:37:52,379 - root - INFO - Found 2 table sources to analyze
+2025-09-16 21:37:52,379 - root - INFO - Selected best table with 3 rows and score 0.14
+2025-09-16 21:37:52,385 - root - INFO - Saved cleaned table: sample_table.csv (3 rows)
+2025-09-16 21:37:52,385 - root - INFO - Saved cleaned text content: sample_extracted_text.txt
+2025-09-16 21:37:52,386 - root - INFO - Cleaned up temporary sample_images directory
+2025-09-16 21:37:52,387 - root - INFO - Cleaned up empty outputs directory
+2025-09-16 21:37:52,388 - root - INFO - Enhanced document processing completed successfully in 2.93s
+2025-09-16 21:37:52,388 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
+2025-09-16 21:39:48,946 - root - INFO - Output directories created at: outputs
+2025-09-16 21:39:48,946 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:39:48,947 - root - INFO - Output directories created at: results
+2025-09-16 21:39:48,947 - root - INFO - Starting enhanced document processing: sample.pdf
+2025-09-16 21:39:48,947 - root - INFO - Starting PDF parsing: sample.pdf
+2025-09-16 21:39:48,947 - od_parse.parser.pdf_parser - INFO - Parsing PDF file: sample.pdf
+2025-09-16 21:39:50,585 - tabula.backend - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-16 21:39:50,585 - tabula.backend - WARNING - No module named 'jpype'
+2025-09-16 21:39:51,275 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:39:51,339 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:39:51,370 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_14.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:39:51,371 - root - INFO - PDF parsing completed successfully
+2025-09-16 21:39:51,371 - root - INFO - Found 3 images to analyze for embedded content
+2025-09-16 21:39:52,035 - root - INFO - Embedded image found: page_1_img_1.png
+2025-09-16 21:39:52,061 - root - INFO - Filtered to 1 embedded images
+2025-09-16 21:39:52,312 - root - INFO - Saved embedded image: sample_embedded_2.png
+2025-09-16 21:39:52,312 - root - INFO - Successfully processed 1 embedded images
+2025-09-16 21:39:52,312 - root - INFO - Found 2 table sources to analyze
+2025-09-16 21:39:52,312 - root - INFO - Selected best table with 3 rows and score 0.14
+2025-09-16 21:39:52,318 - root - INFO - Saved cleaned table: sample_table.csv (3 rows)
+2025-09-16 21:39:52,319 - root - INFO - Saved cleaned text content: sample_extracted_text.txt
+2025-09-16 21:39:52,320 - root - INFO - Cleaned up temporary sample_images directory
+2025-09-16 21:39:52,321 - root - INFO - Cleaned up empty outputs directory
+2025-09-16 21:39:52,321 - root - INFO - Enhanced document processing completed successfully in 3.37s
+2025-09-16 21:39:52,321 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
+2025-09-16 21:52:07,845 - root - INFO - Output directories created at: outputs
+2025-09-16 21:52:07,846 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:52:07,846 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:52:07,846 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:52:07,846 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:13,070 - root - INFO - Output directories created at: outputs
+2025-09-16 21:53:13,070 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:53:13,070 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:53:13,071 - root - INFO - Processing document and building RAG index: sample.pdf
+2025-09-16 21:53:13,071 - root - INFO - Starting enhanced document processing: sample.pdf
+2025-09-16 21:53:13,071 - root - INFO - Starting PDF parsing: sample.pdf
+2025-09-16 21:53:13,071 - od_parse.parser.pdf_parser - INFO - Parsing PDF file: sample.pdf
+2025-09-16 21:53:14,591 - tabula.backend - WARNING - Failed to import jpype dependencies. Fallback to subprocess.
+2025-09-16 21:53:14,592 - tabula.backend - WARNING - No module named 'jpype'
+2025-09-16 21:53:15,229 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:53:15,293 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_1.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:53:15,321 - od_parse.ocr.handwritten - ERROR - Error extracting handwritten content from sample_images\page_1_img_14.png: tesseract is not installed or it's not in your PATH. See README file for more information.
+2025-09-16 21:53:15,321 - root - INFO - PDF parsing completed successfully
+2025-09-16 21:53:15,321 - root - INFO - Found 3 images to analyze for embedded content
+2025-09-16 21:53:15,978 - root - INFO - Embedded image found: page_1_img_1.png
+2025-09-16 21:53:16,006 - root - INFO - Filtered to 1 embedded images
+2025-09-16 21:53:16,265 - root - INFO - Saved embedded image: sample_embedded_2_1.png
+2025-09-16 21:53:16,265 - root - INFO - Successfully processed 1 embedded images
+2025-09-16 21:53:16,265 - root - INFO - Found 2 table sources to analyze
+2025-09-16 21:53:16,266 - root - INFO - Selected best table with 3 rows and score 0.14
+2025-09-16 21:53:16,273 - root - INFO - Saved cleaned table: sample_table_1.csv (3 rows)
+2025-09-16 21:53:16,274 - root - INFO - Saved cleaned text content: sample_extracted_text_1.txt
+2025-09-16 21:53:16,276 - root - INFO - Cleaned up temporary sample_images directory
+2025-09-16 21:53:16,277 - root - INFO - Enhanced document processing completed successfully in 3.21s
+2025-09-16 21:53:16,277 - root - INFO - Extracted: 1 embedded images, 1 clean tables, 1 text file
+2025-09-16 21:53:16,282 - root - INFO - Built corpus with 3 documents from parsed data
+2025-09-16 21:53:16,284 - root - INFO - Computed TF-IDF index with 3 documents
+2025-09-16 21:53:16,286 - root - INFO - Index saved to ./rag_index.json
+2025-09-16 21:53:16,287 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,287 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,288 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,288 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,289 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,289 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,289 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,290 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,290 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,291 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,297 - root - INFO - Output directories created at: outputs
+2025-09-16 21:53:16,297 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:53:16,297 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:53:16,307 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:53:16,307 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,313 - root - INFO - Output directories created at: outputs
+2025-09-16 21:53:16,313 - root - INFO - Enhanced refined pipeline initialized successfully
+2025-09-16 21:53:16,313 - root - INFO - RAG Pipeline initialized successfully
+2025-09-16 21:53:16,313 - root - INFO - Loaded RAG index with 3 documents
+2025-09-16 21:53:16,314 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,314 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,314 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,315 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,315 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,315 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted
+2025-09-16 21:53:16,315 - root - ERROR - Failed to retrieve documents: The TF-IDF vectorizer is not fitted

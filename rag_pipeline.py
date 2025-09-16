@@ -211,25 +211,24 @@ def retrieve_documents(query: str, index: Dict[str, Any], top_k: int = 3) -> Lis
         return []
     
     try:
-        # Reconstruct vectorizer
-        vectorizer_data = index.get("vectorizer", {})
-        if not vectorizer_data:
-            return []
+        # Get documents and create fresh vectorizer (avoid vocabulary reconstruction issues)
+        documents = index["documents"]
+        texts = [doc["text"] for doc in documents]
         
+        # Create fresh vectorizer
         vectorizer = TfidfVectorizer(
             max_features=1000,
             stop_words='english',
             ngram_range=(1, 2),
             min_df=1,
-            max_df=0.95,
-            vocabulary=vectorizer_data.get("vocabulary", None)
+            max_df=0.95
         )
         
-        # Transform query
+        # Fit on texts and transform query
+        tfidf_matrix = vectorizer.fit_transform(texts)
         query_vector = vectorizer.transform([query])
         
         # Compute similarities
-        tfidf_matrix = np.array(index["tfidf_matrix"])
         similarities = cosine_similarity(query_vector, tfidf_matrix).flatten()
         
         # Get top-k most similar documents
@@ -238,7 +237,7 @@ def retrieve_documents(query: str, index: Dict[str, Any], top_k: int = 3) -> Lis
         results = []
         for idx in top_indices:
             if similarities[idx] > 0:  # Only include documents with similarity > 0
-                doc = index["documents"][idx].copy()
+                doc = documents[idx].copy()
                 doc["similarity_score"] = float(similarities[idx])
                 results.append(doc)
         
